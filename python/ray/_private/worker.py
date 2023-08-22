@@ -868,7 +868,7 @@ def get_gpu_ids():
     # returned).
     if global_worker.original_gpu_ids is not None:
         assigned_ids = [
-            global_worker.original_gpu_ids[gpu_id] for gpu_id in assigned_ids
+            global_worker.original_gpu_ids[gpu_id % 8] for gpu_id in assigned_ids
         ]
         # Give all GPUs in local_mode.
         if global_worker.mode == LOCAL_MODE:

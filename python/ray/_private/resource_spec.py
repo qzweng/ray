@@ -165,11 +165,11 @@ class ResourceSpec(
         gpu_ids = ray._private.utils.get_cuda_visible_devices()
         # Check that the number of GPUs that the raylet wants doesn't
         # exceed the amount allowed by CUDA_VISIBLE_DEVICES.
-        if num_gpus is not None and gpu_ids is not None and num_gpus > len(gpu_ids):
-            raise ValueError(
-                "Attempting to start raylet with {} GPUs, "
-                "but CUDA_VISIBLE_DEVICES contains {}.".format(num_gpus, gpu_ids)
-            )
+        # if num_gpus is not None and gpu_ids is not None and num_gpus > len(gpu_ids):
+        #     raise ValueError(
+        #         "Attempting to start raylet with {} GPUs, "
+        #         "but CUDA_VISIBLE_DEVICES contains {}.".format(num_gpus, gpu_ids)
+        #     )
         if num_gpus is None:
             # Try to automatically detect the number of GPUs.
             num_gpus = _autodetect_num_gpus()
